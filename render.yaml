@@ -1,0 +1,29 @@
+# Render Blueprint for ВК Аналитик
+services:
+  - type: web
+    name: vk-analytic-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: VK_CLIENT_ID
+        sync: false
+      - key: VK_CLIENT_SECRET
+        sync: false
+      - key: VK_REDIRECT_URI
+        sync: false
+      - key: TELEGRAM_PAYMENT_TOKEN
+        sync: false
+      - key: TELEGRAM_BOT_USERNAME
+        sync: false
+    autoDeploy: true
+  - type: web
+    name: vk-analytic-frontend
+    env: static
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/build
+    autoDeploy: true
