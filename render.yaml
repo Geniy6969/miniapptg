@@ -1,4 +1,4 @@
-# Render Blueprint for ВК Аналитик
+# Render Blueprint for ВК Аналитик (Web Services)
 services:
   - type: web
     name: vk-analytic-backend
